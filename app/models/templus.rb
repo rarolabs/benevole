@@ -1,8 +1,8 @@
 class Templus
   @@nome_aplicacao = "Bénévole"
   @@nome_empresa = "Bénévole"
-  @@logo = 'logo_simples.png'
-  @@logo_menor = 'logo_menor.png'
+  @@logo = 'logo.png'
+  @@logo_menor = 'logo.png'
   @@logo_rodape = 'raro_azul.png'
   @@logo_landpage = 'logo.png'
   @@favicon = 'favicon.ico'
