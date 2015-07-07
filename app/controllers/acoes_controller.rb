@@ -3,7 +3,7 @@ class AcoesController < ApplicationController
     @acao = Acao.find(params[:id])
     if params[:envio][:usuarios].present?
       params[:envio][:usuarios].keys.each do |usuario|
-        ConviteMailer.enviar(@acao.id, usuario.email).deliver_now
+        Participacao.create(acao: @acao, usuario: @usuario)
       end
     end
   end

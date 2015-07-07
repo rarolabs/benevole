@@ -10,6 +10,7 @@ class CreateAcoes < ActiveRecord::Migration
       t.references :endereco, index: true, foreign_key: true
       t.text :descricao
       t.text :observacao
+      t.string :state
 
       t.timestamps null: false
     end

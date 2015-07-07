@@ -33,6 +33,8 @@ Rails.application.routes.draw do
   resources :acoes, only: [] do
     member do
       post "enviar_convite"
+      get "rejeitar"
+      get "aceitar"
     end
   end
 end

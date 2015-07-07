@@ -15,4 +15,17 @@ class Participacao < ActiveRecord::Base
       transitions from: :convidado, :to => :rejeitado
     end
   end
+  before_create :gerar_token
+  after_create :enviar_convite
+  
+  private
+  def gerar_token
+    self.token = SecureRandom::uuid
+    if Participacao.find_by(token: self.token).present?
+      gerar_token
+    end
+  end
+  def enviar_convite
+    ConviteMailer.enviar(self.id).deliver_now
+  end
 end

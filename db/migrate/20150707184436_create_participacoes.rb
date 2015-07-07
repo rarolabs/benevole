@@ -3,6 +3,7 @@ class CreateParticipacoes < ActiveRecord::Migration
     create_table :participacoes do |t|
       t.references :usuario, index: true, foreign_key: true
       t.references :acao, index: true, foreign_key: true
+      t.string :token
       t.string :state
 
       t.timestamps null: false
