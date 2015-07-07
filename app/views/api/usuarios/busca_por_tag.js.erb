@@ -1,0 +1,5 @@
+$("#tabela_de_usuarios").html("<%= j render '/acoes/usuarios', usuarios: @usuarios %>")
+$('.i-checks.tabela-usuarios').iCheck({
+	checkboxClass: 'icheckbox_square-green',
+	radioClass: 'iradio_square-green'
+});

@@ -1,0 +1,34 @@
+<div class="panel panel-primary">
+	<div class="panel-heading">
+		Qualificações
+	</div>
+	<div class="panel-body">
+		<p>Utilize os filtros abaixo para encontrar as ideias</p>
+		<div class="feed-element">
+			<% Usuario.qualificacao_counts.each do |q|%>
+  			<div>
+  				<label class=""> 
+  					<div class="icheckbox_square-green" style="position: relative;">
+  						<input name="tag_<%= q.id %>" type="checkbox" class="i-checks" style="position: absolute; opacity: 0;" data-name="<%= q.name %>">
+  					</div> 
+  					<%= q.name %>
+  				</label>
+  			</div>
+			<%end%>
+		</div>
+	</div>
+</div>
+<script type="text/javascript">
+	var tags = [];
+	function busca_por_tag(){
+		$.get('/api/usuarios/busca_por_tag.js?tag=' + tags + '&id=' + <%=@record.id%>);
+	}
+	$("input[name^='tag_']").on("ifChecked click",function(){
+		tags.push($(this).data("name"));
+		busca_por_tag();
+	});	
+	$("input[name^='tag_']").on("ifUnchecked click",function(){
+		tags.splice(tags.indexOf($(this).data("name")), 1);
+		busca_por_tag();
+	});
+</script>

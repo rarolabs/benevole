@@ -1,0 +1,23 @@
+<% content_for :breadcumb do %>
+	<li class=""><%= link_to "Convidar Usuários", "/crud/acao/#{@record.id}/acao/convidar_usuarios" %></li>
+<% end %>
+	
+
+<% content_for :header do %>
+	Convidar Usuários
+<% end %>
+
+<% content_for :title do %>
+	Selecionar todos    <input type="checkbox" class="i-checks" id="all_check">
+<% end %>
+
+<% content_for :actions do %>
+	<%= link_to "#", class: "btn btn-small btn-primary btn-rounded", id: "enviar_convite" do %>
+		<i class="fa fa-envelope"></i> Enviar convite
+	<% end %>
+<% end %>
+
+<% content_for :scopes do %>
+<% end %>
+
+<%= render "layouts/template_raro_crud" %>

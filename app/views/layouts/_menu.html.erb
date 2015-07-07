@@ -1,0 +1,17 @@
+<nav class="navbar-default navbar-static-side" role="navigation">
+	<div class="sidebar-collapse">
+		<ul class="nav" id="side-menu">
+			<%= link_to root_path do %>
+				<li class="nav-header">
+					<div class="profile-element"> 
+						<div><%=image_tag(Templus.logo, class: 'img-responsive')%></div>
+					</div>
+					<div class="logo-element">
+						<%=image_tag(Templus.logo_menor, class: 'img-responsive')%>
+					</div>
+				</li>
+			<% end %>
+			<%= render '/layouts/menu_crud'%>
+		</ul>
+	</div>
+</nav>
