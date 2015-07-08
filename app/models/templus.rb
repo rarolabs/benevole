@@ -1,10 +1,10 @@
 class Templus
   @@nome_aplicacao = "Bénévole"
   @@nome_empresa = "Bénévole"
-  @@logo = 'logo.png'
-  @@logo_menor = 'logo.png'
+  @@logo = 'benevole.png'
+  @@logo_menor = 'benevole_b.png'
   @@logo_rodape = 'raro_azul.png'
-  @@logo_landpage = 'logo.png'
+  @@logo_landpage = 'benevole.png'
   @@favicon = 'favicon.ico'
   @@paragrafo_login = ""
 

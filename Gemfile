@@ -65,6 +65,7 @@ gem 'rmagick'
 gem 'summernote-rails'
 gem 'acts-as-taggable-on', '~> 3.4'
 gem 'bootstrap-tagsinput-rails'
+gem "transitions", :require => ["transitions", "active_model/transitions"]
 
 # Use Unicorn as the app server
 gem 'unicorn'

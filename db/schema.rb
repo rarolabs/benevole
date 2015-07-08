@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150707190963) do
+ActiveRecord::Schema.define(version: 20150708231812) do
 
   create_table "acoes", force: :cascade do |t|
     t.string   "nome",                  limit: 255
@@ -26,10 +26,13 @@ ActiveRecord::Schema.define(version: 20150707190963) do
     t.string   "state",                 limit: 255
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
+    t.integer  "projeto_id",            limit: 4
+    t.text     "feedback",              limit: 65535
   end
 
   add_index "acoes", ["endereco_id"], name: "index_acoes_on_endereco_id", using: :btree
   add_index "acoes", ["instituicao_id"], name: "index_acoes_on_instituicao_id", using: :btree
+  add_index "acoes", ["projeto_id"], name: "index_acoes_on_projeto_id", using: :btree
 
   create_table "cidades", force: :cascade do |t|
     t.string   "nome",       limit: 255
@@ -107,6 +110,16 @@ ActiveRecord::Schema.define(version: 20150707190963) do
 
   add_index "permissoes", ["papel_id"], name: "index_permissoes_on_papel_id", using: :btree
 
+  create_table "projetos", force: :cascade do |t|
+    t.string   "nome",           limit: 255
+    t.text     "descricao",      limit: 65535
+    t.integer  "instituicao_id", limit: 4
+    t.datetime "created_at",                   null: false
+    t.datetime "updated_at",                   null: false
+  end
+
+  add_index "projetos", ["instituicao_id"], name: "index_projetos_on_instituicao_id", using: :btree
+
   create_table "taggings", force: :cascade do |t|
     t.integer  "tag_id",        limit: 4
     t.integer  "taggable_id",   limit: 4
@@ -158,10 +171,12 @@ ActiveRecord::Schema.define(version: 20150707190963) do
 
   add_foreign_key "acoes", "enderecos"
   add_foreign_key "acoes", "instituicoes"
+  add_foreign_key "acoes", "projetos"
   add_foreign_key "cidades", "estados"
   add_foreign_key "enderecos", "cidades"
   add_foreign_key "enderecos", "usuarios"
   add_foreign_key "participacoes", "acoes"
   add_foreign_key "participacoes", "usuarios"
+  add_foreign_key "projetos", "instituicoes"
   add_foreign_key "usuarios", "enderecos"
 end

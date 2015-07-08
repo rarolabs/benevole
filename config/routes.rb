@@ -35,6 +35,7 @@ Rails.application.routes.draw do
       post "enviar_convite"
       get "rejeitar"
       get "aceitar"
+      get "concluir_feedback"
     end
   end
 end

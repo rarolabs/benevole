@@ -1,6 +1,7 @@
 class Acao < ActiveRecord::Base
   belongs_to :instituicao
   belongs_to :endereco
+  belongs_to :projeto
   
   accepts_nested_attributes_for :endereco, :allow_destroy => true
   
@@ -10,5 +11,15 @@ class Acao < ActiveRecord::Base
     state :em_andamento
     state :concluida
     state :cancelada
+    
+    event :iniciar do
+      transitions from: :nova, to: :em_andamento
+    end
+    event :concluir do
+      transitions from: :em_andamento, :to => :concluida
+    end
+    event :cancelar do
+      transitions from: [:nova, :em_andamento], :to => :cancelada
+    end
   end
 end
