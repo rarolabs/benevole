@@ -1,0 +1,53 @@
+<div class="wrapper wrapper-content animated fadeInRight">
+	<%= @acoes.each_slice(3) do |acoes| %>
+		<div class="row">
+			<% acoes.each do |acao| %>
+				<div class="col-lg-4">
+					<div class="ibox">
+						<div class="ibox-title">
+							<span class="label label-primary pull-right"><%= acao.state %></span>
+							<% if acao.projeto %>
+								<h5><%= acao.projeto %></h5>
+							<% else %>
+								<h5>Sem projeto</h5>
+							<% end %>
+						</div>
+						<div class="ibox-content">
+							<div class="team-members">
+								<a href="#"><img alt="member" class="img-circle" src="img/a1.jpg"></a>
+								<a href="#"><img alt="member" class="img-circle" src="img/a2.jpg"></a>
+								<a href="#"><img alt="member" class="img-circle" src="img/a3.jpg"></a>
+								<a href="#"><img alt="member" class="img-circle" src="img/a5.jpg"></a>
+								<a href="#"><img alt="member" class="img-circle" src="img/a6.jpg"></a>
+							</div>
+							<h4><%= acao.nome %></h4>
+							<p><%= acao.descricao %></p>
+							<div>
+								<span>Voluntários</span>
+								<div class="stat-percent">48%</div>
+								<div class="progress progress-mini">
+									<div style="width: 48%;" class="progress-bar"></div>
+								</div>
+							</div>
+							<div class="row  m-t-sm">
+								<div class="col-sm-3">
+									<div class="font-bold">CONVITES</div>
+									20
+								</div>
+								<div class="col-sm-5">
+									<div class="font-bold">CONFIRMADOS</div>
+									15
+								</div>
+								<div class="col-sm-4 text-right">
+									<div class="font-bold">REJEITADOS</div>
+									5
+								</div>
+							</div>
+
+						</div>
+					</div>
+				</div>
+			<% end %>
+		</div>
+	<% end %>
+</div>
