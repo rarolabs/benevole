@@ -8,10 +8,13 @@ class Usuario < ActiveRecord::Base
   belongs_to :instituicao
   belongs_to :endereco
   validates_presence_of :nome, :email
+  has_many :participacoes
   
   accepts_nested_attributes_for :endereco, :allow_destroy => true
   acts_as_taggable_on :qualificacao
   mount_uploader :foto, ImageUploader
+  
+  scope :que_nao_receberam_convite, -> (acao_id) {where("id not in (?)", Participacao.where(acao_id: acao_id).pluck(:usuario_id))}
 
   def to_s
     nome

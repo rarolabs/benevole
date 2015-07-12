@@ -14,36 +14,37 @@
 						</div>
 						<div class="ibox-content">
 							<div class="team-members">
-								<a href="#"><img alt="member" class="img-circle" src="img/a1.jpg"></a>
-								<a href="#"><img alt="member" class="img-circle" src="img/a2.jpg"></a>
-								<a href="#"><img alt="member" class="img-circle" src="img/a3.jpg"></a>
-								<a href="#"><img alt="member" class="img-circle" src="img/a5.jpg"></a>
-								<a href="#"><img alt="member" class="img-circle" src="img/a6.jpg"></a>
+								<% acao.participantes.each do |usuario| %>
+									<%=image_tag(usuario.foto.url(:timeline), class: 'img-circle')%>
+								<% end %>
 							</div>
 							<h4><%= acao.nome %></h4>
 							<p><%= acao.descricao %></p>
+							<% if acao.participacoes.present? %>
 							<div>
 								<span>Voluntários</span>
-								<div class="stat-percent">48%</div>
+								<div class="stat-percent">
+									<%= perc = (100*acao.participacoes.aceito.count)/acao.quantidade_voluntario %>%
+								</div>
 								<div class="progress progress-mini">
-									<div style="width: 48%;" class="progress-bar"></div>
+									<div style="width: <%= perc %>%;" class="progress-bar"></div>
 								</div>
 							</div>
 							<div class="row  m-t-sm">
 								<div class="col-sm-3">
 									<div class="font-bold">CONVITES</div>
-									20
+									<%= acao.participacoes.count %>
 								</div>
 								<div class="col-sm-5">
 									<div class="font-bold">CONFIRMADOS</div>
-									15
+									<%= acao.participacoes.aceito.count %>
 								</div>
 								<div class="col-sm-4 text-right">
 									<div class="font-bold">REJEITADOS</div>
-									5
+									<%= acao.participacoes.rejeitado.count %>
 								</div>
 							</div>
-
+							<% end %>
 						</div>
 					</div>
 				</div>

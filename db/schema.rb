@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150708231812) do
+ActiveRecord::Schema.define(version: 20150712213237) do
 
   create_table "acoes", force: :cascade do |t|
     t.string   "nome",                  limit: 255
@@ -91,6 +91,7 @@ ActiveRecord::Schema.define(version: 20150708231812) do
     t.string   "state",      limit: 255
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
+    t.string   "token",      limit: 255
   end
 
   add_index "participacoes", ["acao_id"], name: "index_participacoes_on_acao_id", using: :btree

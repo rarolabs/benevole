@@ -7,7 +7,7 @@
       </tr>
     </thead>
     <tbody>
-      <% usuarios ||= Usuario.order(:nome) %>
+      <% usuarios ||= Usuario.que_nao_receberam_convite(@record.id).order(:nome) %>
       <% usuarios.each do |usuario| %>
       <tr class="read">
         <td class="check-mail">

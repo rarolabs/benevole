@@ -1,5 +1,5 @@
 <%= menu_helper(Dashboard, 'home', 'index', root_path, 'Dashboard', 'fa fa-th-large', true) %>
-<%= menu_parent([Acao, Instituicao, Papel, Usuario], lista_menus_cadastros, "Cadastros", 'fa fa-book', true) do %>
+<%= menu_parent([Acao, Instituicao, Papel, Projeto, Usuario], lista_menus_cadastros, "Cadastros", 'fa fa-book', true) do %>
 	<%= menu_crud_helper(InstituicaoCrud.title, Instituicao) %>
 	<%= menu_crud_helper(ProjetoCrud.title, Projeto) %>
 	<%= menu_crud_helper(AcaoCrud.title, Acao) %>

@@ -1,6 +1,7 @@
 class Participacao < ActiveRecord::Base
   belongs_to :usuario
   belongs_to :acao
+  validates_uniqueness_of :usuario, scope: :acao
   
   include ActiveModel::Transitions
   state_machine auto_scopes: true, initial: :convidado do

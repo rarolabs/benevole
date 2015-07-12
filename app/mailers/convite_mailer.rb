@@ -1,6 +1,5 @@
 class ConviteMailer < ActionMailer::Base
   default from: "naoresponda@rarolabs.com.br"
-  layout 'mailer'
 
   def enviar(participacao_id)
     @participacao = Participacao.find(participacao_id)

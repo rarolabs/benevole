@@ -2,6 +2,7 @@ class Acao < ActiveRecord::Base
   belongs_to :instituicao
   belongs_to :endereco
   belongs_to :projeto
+  has_many :participacoes
   
   accepts_nested_attributes_for :endereco, :allow_destroy => true
   
@@ -21,5 +22,9 @@ class Acao < ActiveRecord::Base
     event :cancelar do
       transitions from: [:nova, :em_andamento], :to => :cancelada
     end
+  end
+  
+  def participantes
+    Usuario.find(participacoes.aceito.pluck(:usuario_id))
   end
 end

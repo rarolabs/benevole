@@ -6,7 +6,7 @@ class AcaoCrud < RaroCrud
   ordenar_por :nome
   itens_por_pagina 20
 
-  acoes :convidar_usuarios, "Convidar"
+  acoes :convidar_usuarios, "Convidar", Proc.new{|a| a.nova? || a.em_andamento?}
   acoes :iniciar!, "Iniciar", Proc.new{|a| a.nova?}
   acoes :cancelar!, "Cancelar", Proc.new{|a| a.nova? || a.em_andamento?}
   acoes :concluir_acao, "Concluir", Proc.new{|a| a.em_andamento?}
