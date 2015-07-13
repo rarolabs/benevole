@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   devise_for :usuarios
 
   resources :usuarios, only: [:edit,:update]
-
+  
   # Routes for RaroCrud
   get '/crud/:model' => "crud#index"
   get '/crud/:model/:id/edit' => "crud#edit"
@@ -13,6 +13,8 @@ Rails.application.routes.draw do
   post '/crud/:model/create' => "crud#create"
   patch '/crud/:model/:id/create' => "crud#create"
   get '/crud/:model/:id/acao/:acao' => "crud#action"
+  
+  get '/crud/acao/:id' => "acoes#show"
   get '/crud/:model/:id' => "crud#show"
 
   resources :permissoes, only: [:create]
@@ -38,4 +40,6 @@ Rails.application.routes.draw do
       get "concluir_feedback"
     end
   end
+  
+  resources :mensagens, only: [:create]
 end

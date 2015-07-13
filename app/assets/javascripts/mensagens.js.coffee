@@ -4,7 +4,13 @@ window.mensagem_success = (str) ->
 window.mensagem_error = (str) ->
 	toastr.error(str, 'Erro!');
 
+window.mensagem_danger = (str) ->
+	toastr.error(str, 'Erro!');
+
 window.mensagem_notice = (str) ->
+	toastr.warning(str, 'Atenção!');
+
+window.mensagem_warning = (str) ->
 	toastr.warning(str, 'Atenção!');
 
 window.mensagem_alert = (str) ->

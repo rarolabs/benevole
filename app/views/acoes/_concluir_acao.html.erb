@@ -1,9 +1,13 @@
-<div class="row">
-  <div class="col-xs-8" id="tabela_de_usuarios">
-    <%= render "/acoes/usuarios_concluidos" %>
-  </div>
-  <div class="col-xs-4">
-    <%= render "/acoes/filtros_concluidos" %>
-  </div>
-  <hr>
-</div>
+<%= render_crud do %>
+	<% url = "/crud/#{@model.name.underscore}/#{@record.id.to_s+'/create'}" %>
+	<%= simple_nested_form_for @record, url: url, html: {class: "form-horizontal"} do |f| %>
+		<%= f.error_notification %>
+		<%= render_field({attribute: :usuarios, sf: {label: "Participantes", input_html: {"data-placeholder" => "Escolha os participantes...", class: "chosen"}, collection: Usuario.order(:nome)}},f,Acao,@record) %>
+		<div class="form-group">
+			<div class="col-sm-4 col-sm-offset-2">
+				<%= f.submit "Salvar", class: 'btn btn-primary'  %>
+				<%= link_to "Voltar", "/crud/acao", class: "btn btn-default" %>
+			</div>
+		</div>
+	<% end %>
+<% end %>

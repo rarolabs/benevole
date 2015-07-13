@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150712213237) do
+ActiveRecord::Schema.define(version: 20150713213410) do
 
   create_table "acoes", force: :cascade do |t|
     t.string   "nome",                  limit: 255
@@ -33,6 +33,11 @@ ActiveRecord::Schema.define(version: 20150712213237) do
   add_index "acoes", ["endereco_id"], name: "index_acoes_on_endereco_id", using: :btree
   add_index "acoes", ["instituicao_id"], name: "index_acoes_on_instituicao_id", using: :btree
   add_index "acoes", ["projeto_id"], name: "index_acoes_on_projeto_id", using: :btree
+
+  create_table "acoes_usuarios", id: false, force: :cascade do |t|
+    t.integer "acao_id",    limit: 4, null: false
+    t.integer "usuario_id", limit: 4, null: false
+  end
 
   create_table "cidades", force: :cascade do |t|
     t.string   "nome",       limit: 255
@@ -75,6 +80,17 @@ ActiveRecord::Schema.define(version: 20150712213237) do
     t.datetime "created_at",                null: false
     t.datetime "updated_at",                null: false
   end
+
+  create_table "mensagens", force: :cascade do |t|
+    t.integer  "usuario_id", limit: 4
+    t.integer  "acao_id",    limit: 4
+    t.text     "texto",      limit: 65535
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
+  end
+
+  add_index "mensagens", ["acao_id"], name: "index_mensagens_on_acao_id", using: :btree
+  add_index "mensagens", ["usuario_id"], name: "index_mensagens_on_usuario_id", using: :btree
 
   create_table "papeis", force: :cascade do |t|
     t.string   "nome",          limit: 255
@@ -176,6 +192,8 @@ ActiveRecord::Schema.define(version: 20150712213237) do
   add_foreign_key "cidades", "estados"
   add_foreign_key "enderecos", "cidades"
   add_foreign_key "enderecos", "usuarios"
+  add_foreign_key "mensagens", "acoes"
+  add_foreign_key "mensagens", "usuarios"
   add_foreign_key "participacoes", "acoes"
   add_foreign_key "participacoes", "usuarios"
   add_foreign_key "projetos", "instituicoes"

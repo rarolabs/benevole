@@ -1,18 +1,26 @@
 class AcoesController < ApplicationController
   skip_before_filter :authenticate_usuario!, only: [:aceitar, :rejeitar]
   skip_authorize_resource only: [:aceitar, :rejeitar]
-  
+
+  def show
+    @record = Acao.find(params[:id])
+    @model = Acao
+    @crud_helper = AcaoCrud
+    @mensagens = @record.mensagens
+    @nova_mensagem = Mensagem.new
+  end
+
   def enviar_convite
-    @acao = Acao.find(params[:id])
+    @record = Acao.find(params[:id])
     if params[:envio][:usuarios].present?
       params[:envio][:usuarios].each do |key, value|
         if value == "1"
-          Participacao.find_or_create_by(acao_id: @acao.id, usuario_id: key)
+          Participacao.find_or_create_by(acao_id: @record.id, usuario_id: key)
         end
       end
     end
     flash[:success] = "Convites enviados com sucesso."
-    redirect_to "crud/acao/#{@acao.id}/acao/convidar_usuarios"
+    @usuarios = Usuario.que_nao_receberam_convite(@record.id).order(:nome)
   end
   
   def aceitar
@@ -23,7 +31,7 @@ class AcoesController < ApplicationController
     else
       flash[:error] = "Seu convite já esta #{participacao.state}"
     end
-    redirect_to root_path
+    redirect_to new_usuario_session_path
   end
   
   def rejeitar
@@ -34,6 +42,6 @@ class AcoesController < ApplicationController
     else
       flash[:error] = "Seu convite já esta #{participacao.state}"
     end
-    redirect_to root_path
+    redirect_to new_usuario_session_path
   end
 end

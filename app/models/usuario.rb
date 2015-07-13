@@ -14,7 +14,7 @@ class Usuario < ActiveRecord::Base
   acts_as_taggable_on :qualificacao
   mount_uploader :foto, ImageUploader
   
-  scope :que_nao_receberam_convite, -> (acao_id) {where("id not in (?)", Participacao.where(acao_id: acao_id).pluck(:usuario_id))}
+  scope :que_nao_receberam_convite, -> (acao_id) {where("usuarios.id not in (?)", Participacao.where(acao_id: acao_id).pluck(:usuario_id) || [])}
 
   def to_s
     nome

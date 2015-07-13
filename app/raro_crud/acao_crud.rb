@@ -23,8 +23,10 @@ class AcaoCrud < RaroCrud
   campo_formulario :horario,  label: "Horário"
   campo_formulario :descricao,  label: "Descrição"
   campo_formulario :observacao,  label: "Orientação"
+  campo_formulario :usuarios,  label: "Participantes", as: :hidden
   adicionar_endereco
 
+  campo_visualizacao :state,  label: "Status"
   campo_visualizacao :nome,  label: "Nome"
   campo_visualizacao :instituicao,  label: "Instituicao"
   campo_visualizacao :quantidade_voluntario,  label: "Quantidade voluntario"
