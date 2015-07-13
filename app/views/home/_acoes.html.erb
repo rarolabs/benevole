@@ -5,11 +5,13 @@
 				<div class="col-lg-4">
 					<div class="ibox">
 						<div class="ibox-title">
-							<span class="label label-primary pull-right"><%= acao.state %></span>
-							<% if acao.projeto %>
-								<h5><%= acao.projeto %></h5>
-							<% else %>
-								<h5>Sem projeto</h5>
+							<%= link_to "/crud/acao/#{acao.id}" do %>
+								<span class="label label-primary pull-right"><%= acao.state %></span>
+								<% if acao.projeto %>
+									<h5><%= acao.projeto %></h5>
+								<% else %>
+									<h5>Sem projeto</h5>
+								<% end %>
 							<% end %>
 						</div>
 						<div class="ibox-content">
