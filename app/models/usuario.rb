@@ -7,6 +7,7 @@ class Usuario < ActiveRecord::Base
   belongs_to :papel
   belongs_to :instituicao
   belongs_to :endereco
+  belongs_to :veiculo
   validates_presence_of :nome, :email
   has_many :participacoes
   

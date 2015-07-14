@@ -25,7 +25,7 @@ class Ability
       if usuario.papel
         usuario.papel.permissoes.each do |permissao|
           # if usuario.reference_id.present? && permissao.klass.constantize.attribute_method?(:reference_id)
-            can permissao.abilities, permissao.klass.constantize, reference_id: usuario.reference_id
+            can permissao.abilities, permissao.klass.constantize
           # else
             # can permissao.abilities, permissao.klass.constantize
           # end

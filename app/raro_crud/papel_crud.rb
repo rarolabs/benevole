@@ -1,7 +1,7 @@
 class PapelCrud < RaroCrud
   
-  titulo "Papéis"
-  link_superior "Novo Papel", id: "novo-button", icon: "plus", link: "new"
+  titulo "Funções"
+  link_superior "Nova Função", id: "novo-button", icon: "plus", link: "new"
 
   ordenar_por :nome
 

@@ -80,7 +80,7 @@
 			<div class="ibox-title">
 				<small class="pull-right text-muted">
 					<% if @mensagens.present? %>
-						Última mensagem:  <%= RaroUtil.formata_data(@mensagens.first.created_at) %>
+						Última mensagem:  <%= RaroUtil.formata_data(@mensagens.first.created_at, "%d/%m/%Y às %H:%M") %>
 					<% end %>
 				</small>
 				Mensagens
@@ -94,7 +94,9 @@
 									<%=image_tag(mensagem.usuario.foto.url(:avatar), class: 'message-avatar')%>
 									<div class="message">
 										<a class="message-author" href="#"> <%= mensagem.usuario.nome %> </a>
-										<span class="message-date"> <%= RaroUtil.formata_data(mensagem.usuario.created_at, "%d/%m/%Y às %H:%M") %> </span>
+										<span class="message-date"> 
+											<%= RaroUtil.formata_data(mensagem.created_at, "%d/%m/%Y às %H:%M") %> 
+										</span>
 										<span class="message-content">
 											<%= mensagem.texto %>
 										</span>

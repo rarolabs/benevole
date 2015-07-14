@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150713213410) do
+ActiveRecord::Schema.define(version: 20150713234204) do
 
   create_table "acoes", force: :cascade do |t|
     t.string   "nome",                  limit: 255
@@ -179,12 +179,28 @@ ActiveRecord::Schema.define(version: 20150713213410) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "endereco_id",            limit: 4
+    t.date     "data_nascimento"
+    t.string   "celular",                limit: 255
+    t.string   "facebook",               limit: 255
+    t.boolean  "doador_sangue",          limit: 1
+    t.integer  "veiculo_id",             limit: 4
+    t.string   "outros_veiculo",         limit: 255
   end
 
   add_index "usuarios", ["email"], name: "index_usuarios_on_email", unique: true, using: :btree
   add_index "usuarios", ["endereco_id"], name: "index_usuarios_on_endereco_id", using: :btree
   add_index "usuarios", ["papel_id"], name: "index_usuarios_on_papel_id", using: :btree
   add_index "usuarios", ["reset_password_token"], name: "index_usuarios_on_reset_password_token", unique: true, using: :btree
+  add_index "usuarios", ["veiculo_id"], name: "index_usuarios_on_veiculo_id", using: :btree
+
+  create_table "veiculos", force: :cascade do |t|
+    t.string   "nome",           limit: 255
+    t.integer  "instituicao_id", limit: 4
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
+  end
+
+  add_index "veiculos", ["instituicao_id"], name: "index_veiculos_on_instituicao_id", using: :btree
 
   add_foreign_key "acoes", "enderecos"
   add_foreign_key "acoes", "instituicoes"
@@ -198,4 +214,6 @@ ActiveRecord::Schema.define(version: 20150713213410) do
   add_foreign_key "participacoes", "usuarios"
   add_foreign_key "projetos", "instituicoes"
   add_foreign_key "usuarios", "enderecos"
+  add_foreign_key "usuarios", "veiculos"
+  add_foreign_key "veiculos", "instituicoes"
 end

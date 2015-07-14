@@ -8,6 +8,8 @@ class Acao < ActiveRecord::Base
   
   accepts_nested_attributes_for :endereco, :allow_destroy => true
   
+  after_save  :conclui_acao
+  
   include ActiveModel::Transitions
   state_machine auto_scopes: true, initial: :nova do
     state :nova
@@ -32,5 +34,12 @@ class Acao < ActiveRecord::Base
   
   def to_s
     nome
+  end
+  
+  private
+  def conclui_acao
+    if self.usuarios.present?
+      self.concluir! if self.em_andamento?
+    end
   end
 end

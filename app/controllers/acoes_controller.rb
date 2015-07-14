@@ -6,7 +6,7 @@ class AcoesController < ApplicationController
     @record = Acao.find(params[:id])
     @model = Acao
     @crud_helper = AcaoCrud
-    @mensagens = @record.mensagens
+    @mensagens = @record.mensagens.order("created_at desc")
     @nova_mensagem = Mensagem.new
   end
 

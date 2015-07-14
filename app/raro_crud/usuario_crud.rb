@@ -11,6 +11,13 @@ class UsuarioCrud < RaroCrud
   campo_formulario :nome, label: "Nome"
   campo_formulario :email, label: "Email"
   campo_formulario :foto, label: "Foto"
+  campo_formulario :data_nascimento, label: "Data de nascimento", as: :string, input_html: {"data-mask" => "99/99/9999"}
+  campo_formulario :telefone, label: "Telefone", input_html: {"data-mask" => "(99)9999-9999"}
+  campo_formulario :celular, label: "Celular", input_html: {"data-mask" => "(99)9999-9999"}
+  campo_formulario :facebook, label: "Facebook"
+  campo_formulario :doador_sangue, label: "Doador de sangue?", input_html: {class: "i-checks"}
+  campo_formulario :veiculo, label: "Como conheceu?", add_registro: false
+  campo_formulario :outros_veiculo, label: "Outros"
   campo_formulario :instituicao, label: "Instituição"
   campo_formulario :qualificacao_list,  label: "Qualificações", input_html: {data:{role:'tagsinput'}, placeholder: "digite a qualificação"}, value: Proc.new{|f| f.object.try(:qualificacao_list).try(:present?) ? f.object.qualificacao_list.to_s : ""}
   campo_formulario :password, label: "Senha", default_test: "12345678", edit: false
