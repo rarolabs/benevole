@@ -9,9 +9,9 @@ class VeiculoCrud < RaroCrud
 
   campo_tabela :nome,  label: "Nome"
   campo_tabela :instituicao,  label: "Instituição"
-
+  
+  campo_formulario :instituicao,  label: "Instituição", if: Proc.new {|obj| Usuario.current.root? }
   campo_formulario :nome,  label: "Nome"
-  campo_formulario :instituicao,  label: "Instituição"
 
   campo_busca :nome,  label: "Nome"
   campo_busca :instituicao,  label: "Instituição"

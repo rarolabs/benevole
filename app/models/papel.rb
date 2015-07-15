@@ -9,5 +9,9 @@ class Papel < ActiveRecord::Base
   def to_s
     self.nome
   end
+  
+  def admin?
+    chave == "admin"
+  end
 
 end

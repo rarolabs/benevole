@@ -1,4 +1,5 @@
-<%= simple_form_for @usuario, :url => url_for(:action => 'update', :controller => 'usuarios'), html: {class: "form-horizontal"}  do |f| %>
+<%= render_crud do %>
+<%= simple_form_for @record, :url => url_for(:action => 'update', :controller => 'usuarios'), html: {class: "form-horizontal"}  do |f| %>
 	<%= f.error_notification %>
 	<%= f.input :nome %>
 	<%= f.input :email %>
@@ -9,4 +10,5 @@
 			<%= f.submit "Salvar", class: 'btn btn-primary' %>
 		</div>
 	</div>		
+<% end %>
 <% end %>

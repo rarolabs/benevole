@@ -2,7 +2,7 @@ class UsuariosController < ApplicationController
   def edit
     @model = Module.const_get("usuario".camelize)
     @crud_helper = Module.const_get("usuario_crud".camelize)
-    @usuario = Usuario.find(params[:id])
+    @record = Usuario.find(params[:id])
   end  
   
   def update

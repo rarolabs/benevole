@@ -10,28 +10,15 @@ class Ability
     alias_action :action, :to => :create_or_update
     # alias_action :destroy_selected, :to => :destroy
 
+    can :update, Usuario, id: usuario.id
     if usuario.root?
       can :manage, :all
     else
-      #Permissão global
-      # can :manage, Dashboard
-
-      # #Permissão fixa
-      # case usuario.papel.chave
-      #   when "admin"
-      # end
-
-      #Permissão dinamica
       if usuario.papel
         usuario.papel.permissoes.each do |permissao|
-          # if usuario.reference_id.present? && permissao.klass.constantize.attribute_method?(:reference_id)
-            can permissao.abilities, permissao.klass.constantize
-          # else
-            # can permissao.abilities, permissao.klass.constantize
-          # end
+          can permissao.abilities, permissao.klass.constantize, instituicao_id: usuario.instituicao_id
         end
       end
     end
-    #Condições especificas de autorização
   end
 end

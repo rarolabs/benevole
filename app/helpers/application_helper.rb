@@ -1,6 +1,6 @@
 module ApplicationHelper
   
   def lista_menus_cadastros
-    [['crud', 'acao'],['crud', 'instituicao'],['crud', 'papel'],['crud', 'usuario'],['crud', 'projeto']]
+    [['crud', 'instituicao'],['crud', 'papel'],['crud', 'projeto'],['crud', 'veiculo']]
   end
 end

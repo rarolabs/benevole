@@ -16,6 +16,7 @@ class Usuario < ActiveRecord::Base
   mount_uploader :foto, ImageUploader
   
   scope :que_nao_receberam_convite, -> (acao_id) {where("usuarios.id not in (?)", Participacao.where(acao_id: acao_id).pluck(:usuario_id) || [])}
+  scope :aniversariantes_do_mes, -> {where("data_nascimento between CAST(? AS DATE) and CAST(? AS DATE)", DateTime.now.beginning_of_month, DateTime.now.end_of_month)}
 
   def to_s
     nome

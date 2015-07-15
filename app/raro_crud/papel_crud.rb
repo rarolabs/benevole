@@ -4,8 +4,9 @@ class PapelCrud < RaroCrud
   link_superior "Nova Função", id: "novo-button", icon: "plus", link: "new"
 
   ordenar_por :nome
-
-  acoes :associar, "Definir permissões", Proc.new {|p| Usuario.current.ability.can?(:create,p)}
+  edicao Proc.new {|obj| obj.chave != "admin"}
+  exclusao Proc.new {|obj| obj.chave != "admin"}
+  acoes :associar, "Definir permissões", Proc.new {|obj| Usuario.current.ability.can?(:create,obj) && (obj.chave != "admin" || Usuario.current.root?)}
 
   campo_tabela :nome,  label: "Nome"
   campo_tabela :descricao,  label: "Descrição"
