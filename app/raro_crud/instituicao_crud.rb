@@ -25,9 +25,4 @@ class InstituicaoCrud < RaroCrud
   campo_visualizacao :endereco,  label: "Endereco"
 
   campo_busca :nome,  label: "Nome"
-  campo_busca :logo,  label: "Logo"
-  campo_busca :descricao,  label: "Descricao"
-  campo_busca :site,  label: "Site"
-  campo_busca :email,  label: "Email"
-  campo_busca :endereco,  label: "Endereco"
 end

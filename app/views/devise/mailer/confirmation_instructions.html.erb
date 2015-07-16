@@ -1,0 +1,9 @@
+<p>Bem-Vindo <%= @email %>!</p>
+<p>Você pode confirmar sua conta através do link abaixo:</p>
+<p><%= link_to 'Confirmar conta', confirmation_url(@resource, :confirmation_token => @resource.confirmation_token) %></p>
+<br>
+<p>Atenciosamente,</p>
+<p>Equipe IEPTB-MG.</p>
+<p>(31) 2519-0500</p>
+<p>E-mail - contato@ieptbmg.com.br</p>
+<%=image_tag('logo_ieptb.jpg', style: "width: 100%")%>

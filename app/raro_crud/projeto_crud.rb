@@ -18,6 +18,4 @@ class ProjetoCrud < RaroCrud
   campo_visualizacao :descricao,  label: "Descrição", input_html: {rows: 5}
 
   campo_busca :nome,  label: "Nome"
-  campo_busca :descricao,  label: "Descricao"
-  campo_busca :instituicao,  label: "Instituição"
 end

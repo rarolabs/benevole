@@ -10,7 +10,7 @@ class Ability
     alias_action :action, :to => :create_or_update
     # alias_action :destroy_selected, :to => :destroy
 
-    can :update, Usuario, id: usuario.id
+    can [:update,:create], Usuario, id: usuario.id
     if usuario.root?
       can :manage, :all
     else

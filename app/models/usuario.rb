@@ -8,7 +8,6 @@ class Usuario < ActiveRecord::Base
   belongs_to :instituicao
   belongs_to :endereco
   belongs_to :veiculo
-  validates_presence_of :nome, :email
   has_many :participacoes
   
   accepts_nested_attributes_for :endereco, :allow_destroy => true
@@ -20,6 +19,14 @@ class Usuario < ActiveRecord::Base
 
   def to_s
     nome
+  end
+  
+  def admin?
+    self.root? || self.papel.try(:admin?)
+  end
+  
+  def voluntario?
+    self.root? || !self.papel.try(:admin?)
   end
 
   def self.params_permitt
@@ -36,5 +43,9 @@ class Usuario < ActiveRecord::Base
   
   def self.current=(usuario)
     Thread.current[:current_usuario] = usuario
+  end
+  
+  def atualizado?
+    nome.present? && foto.present? && data_nascimento.present? && celular.present? && veiculo.present? && endereco.try(:logradouro).try(:present?) && endereco.try(:numero).try(:present?)&& endereco.try(:bairro).try(:present?) && endereco.try(:cidade).try(:present?)
   end
 end

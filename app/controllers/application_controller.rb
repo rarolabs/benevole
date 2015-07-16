@@ -1,6 +1,7 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   before_filter :authenticate_usuario!, :unless => :devise_controller?
+  before_filter :redirect_if_update_user
   around_filter :set_current_usuario
   
   rescue_from CanCan::AccessDenied do |exception|
@@ -47,5 +48,14 @@ class ApplicationController < ActionController::Base
       render :partial => params[:partial]
     end
   end
+  
+  def redirect_if_update_user
+    return true if ((params[:controller] == 'crud' && params[:model] == "usuario") || (params[:controller] == "devise/sessions" && params[:action] == "destroy") || (params[:controller] == 'api/cidades' && params[:action] == "busca"))
+    if current_usuario.present? && !current_usuario.atualizado?
+      flash[:notice] = "Por favor atualize seus dados para continuar"
+		  redirect_to "/crud/usuario/#{current_usuario.id}/edit"
+    end
+  end
+  
   
 end

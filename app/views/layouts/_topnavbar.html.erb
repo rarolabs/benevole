@@ -1,5 +1,6 @@
 <div class="row border-bottom">
 	<nav class="navbar navbar-static-top" role="navigation" style="margin-bottom: 0">
+		<% if current_usuario.present? %>
       <div class="navbar-header">
           <a class="navbar-minimalize minimalize-styl-2 btn btn-primary " href="#"><i class="fa fa-bars"></i> </a>
       </div>
@@ -14,5 +15,6 @@
 				</ul>
 			</li>
 		</ul>
+		<% end %>
 	</nav>
 </div>

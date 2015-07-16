@@ -6,24 +6,24 @@ class UsuarioCrud < RaroCrud
   ordenar_por :nome
   exclusao Proc.new {|obj| obj != Usuario.current}
 
+  acoes :qualificar, "Qualificar", Proc.new {|obj| Usuario.current.admin? && obj.atualizado?}
+  
   campo_tabela :nome,  label: "Nome"
   campo_tabela :email, label: "email"
 
   campo_formulario :instituicao, label: "Instituição", if: Proc.new {|obj| Usuario.current.root? }
-  campo_formulario :qualificacao_list, label: "Qualificações", input_html: {data:{role:'tagsinput'}, placeholder: "digite a qualificação"}, value: Proc.new{|f| f.object.try(:qualificacao_list).try(:present?) ? f.object.qualificacao_list.to_s : ""}, if: Proc.new {|obj| Usuario.current.root? || Usuario.current.papel.try(:admin?) }
-  campo_formulario :papel, label: "Função", label_method: :descricao, if: Proc.new {|obj| Usuario.current.root? || Usuario.current.papel.try(:admin?) }
-  campo_formulario :nome, label: "Nome"
-  campo_formulario :email, label: "Email"
-  campo_formulario :foto, label: "Foto"
-  campo_formulario :data_nascimento, label: "Data de nascimento", as: :string, input_html: {"data-mask" => "99/99/9999"}
-  campo_formulario :telefone, label: "Telefone", input_html: {"data-mask" => "(99)9999-9999"}
-  campo_formulario :celular, label: "Celular", input_html: {"data-mask" => "(99)9999-9999"}
-  campo_formulario :facebook, label: "Facebook"
-  campo_formulario :doador_sangue, label: "Doador de sangue?", input_html: {class: "i-checks"}
-  campo_formulario :veiculo, label: "Como conheceu?", add_registro: false
-  campo_formulario :outros_veiculo, label: "Outros"
-  campo_formulario :password, label: "Senha", default_test: "12345678", edit: false
-  campo_formulario :password_confirmation, label: "Confirmação Senha", default_test: "12345678", edit: false
+  campo_formulario :email, label: "Email", if: Proc.new {|obj| Usuario.current.admin? }
+  campo_formulario :papel, label: "Função", label_method: :descricao, if: Proc.new {|obj| Usuario.current.admin? }
+  campo_formulario :nome, label: "Nome", required: true, if: Proc.new {|obj| Usuario.current.voluntario? }
+  campo_formulario :foto, label: "Foto", required: true, if: Proc.new {|obj| Usuario.current.voluntario? }
+  campo_formulario :data_nascimento, required: true, label: "Data de nascimento", as: :string, input_html: {"data-mask" => "99/99/9999"}, if: Proc.new {|obj| Usuario.current.voluntario? }
+  campo_formulario :telefone, label: "Telefone", input_html: {"data-mask" => "(99)9999-9999"}, if: Proc.new {|obj| Usuario.current.voluntario? }
+  campo_formulario :celular, required: true, label: "Celular", input_html: {"data-mask" => "(99)9999-9999"}, if: Proc.new {|obj| Usuario.current.voluntario? }
+  campo_formulario :facebook, label: "Facebook", if: Proc.new {|obj| Usuario.current.voluntario? }
+  campo_formulario :doador_sangue, required: true, label: "Doador de sangue?", input_html: {class: "i-checks"}, if: Proc.new {|obj| Usuario.current.voluntario? }
+  campo_formulario :veiculo, required: true, label: "Como conheceu?", add_registro: false, if: Proc.new {|obj| Usuario.current.voluntario? }
+  campo_formulario :outros_veiculo, label: "Outros", if: Proc.new {|obj| Usuario.current.voluntario? }
+  campo_formulario :qualificacao_list, label: "Qualificacao", if: Proc.new {|obj| false }
   adicionar_endereco
 
   campo_visualizacao :nome,  label: "Nome"

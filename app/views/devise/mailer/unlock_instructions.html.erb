@@ -1,0 +1,10 @@
+<p>Olá <%= @resource.email %>!</p>
+<p>Sua conta foi bloqueada devido a um número excessivo de tentativas sem sucesso.</p>
+<p>Clique no link abaixo para desbloquear sua conta:</p>
+<p><%= link_to 'Desbloquear Conta', unlock_url(@resource, :unlock_token => @resource.unlock_token) %></p>
+<br>
+<p>Atenciosamente,</p>
+<p>Equipe IEPTB-MG.</p>
+<p>(31) 2519-0500</p>
+<p>E-mail - contato@ieptbmg.com.br</p>
+<%=image_tag('logo_ieptb.jpg', style: "width: 100%")%>

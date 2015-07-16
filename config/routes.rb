@@ -4,6 +4,8 @@ Rails.application.routes.draw do
 
   resources :usuarios, only: [:edit,:update]
   
+  post "/crud/usuario/create" => "usuarios#create"
+  
   # Routes for RaroCrud
   get '/crud/:model' => "crud#index"
   get '/crud/:model/:id/edit' => "crud#edit"
@@ -13,7 +15,6 @@ Rails.application.routes.draw do
   post '/crud/:model/create' => "crud#create"
   patch '/crud/:model/:id/create' => "crud#create"
   get '/crud/:model/:id/acao/:acao' => "crud#action"
-  
   get '/crud/acao/:id' => "acoes#show"
   get '/crud/:model/:id' => "crud#show"
 
