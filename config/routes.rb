@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'landpage/index'
+
   root to: "home#index"
   devise_for :usuarios
 

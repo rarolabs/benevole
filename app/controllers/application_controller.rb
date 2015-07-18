@@ -4,6 +4,16 @@ class ApplicationController < ActionController::Base
   before_filter :redirect_if_update_user
   around_filter :set_current_usuario
   
+  before_filter :add_headers
+  
+  def add_headers
+    headers['Access-Control-Allow-Origin'] = '*'
+    headers['Access-Control-Allow-Methods'] = 'POST, PUT, DELETE, GET, OPTIONS'
+    headers['Access-Control-Request-Method'] = '*'
+    headers['Access-Control-Allow-Headers'] = 'Origin, X-Requested-With, Content-Type, Accept, Authorization'
+  end
+  
+  
   rescue_from CanCan::AccessDenied do |exception|
     respond_to do |format|
       format.html {
