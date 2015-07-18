@@ -14,7 +14,7 @@ Rails.application.config.assets.precompile += [ 'appviews.css', 'cssanimations.c
                                'gallery.css', 'graphs.css',
                                'mailbox.css', 'miscellaneous.css',
                                'pages.css', 'tables.css',
-                               'uielements.css', 'widgets.css' ]
+                               'uielements.css', 'widgets.css', 'landpage.css' ]
 
 Rails.application.config.assets.precompile += [ 'appviews.js', 'cssanimations.js',
                               'dashboards.js', 'forms.js', 
@@ -22,6 +22,6 @@ Rails.application.config.assets.precompile += [ 'appviews.js', 'cssanimations.js
                               'mailbox.js', 'miscellaneous.js',
                               'pages.js', 'tables.js', 
                               'uielements.js', 'widgets.js', 'crud.js',
-                              'crud/*.js' ]
+                              'crud/*.js', 'landpage.js' ]
 
 Rails.application.config.assets.precompile += [ 'green.png', 'green@2x.png' ]
