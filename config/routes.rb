@@ -1,7 +1,4 @@
 Rails.application.routes.draw do
-  get 'landpage/index'
-
-  root to: "home#index"
   devise_for :usuarios
 
   resources :usuarios, only: [:edit,:update]
@@ -45,4 +42,6 @@ Rails.application.routes.draw do
   end
   
   resources :mensagens, only: [:create]
+  get "home/index"
+  root to: "landpage#index"
 end
