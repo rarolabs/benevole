@@ -5,4 +5,3 @@
 //= require landpage/js/cbpAnimatedHeader.js
 //= require landpage/js/wow.min.js
 //= require landpage/js/inspinia.js
-

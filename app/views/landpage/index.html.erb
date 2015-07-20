@@ -1,197 +1,199 @@
 <div class="navbar-wrapper">
-        <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
-            <div class="container">
-                <div class="navbar-header page-scroll">
-                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-                        <span class="sr-only">Toggle navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                    <a class="navbar-brand" href="#">Bénévole</a>
-                </div>
-                <div id="navbar" class="navbar-collapse collapse">
-                    <ul class="nav navbar-nav navbar-right">
-                        <li><a class="page-scroll" href="#page-top">Início</a></li>
-                        <li><a class="page-scroll" href="#features">Funcionalidades</a></li>
-                        <li><a class="page-scroll" href="#team">Participantes</a></li>
-                        <li><a class="page-scroll" href="#testimonials">Depoimentos</a></li>
-                        <li><a class="page-scroll" href="#contact">Contato</a></li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
+	<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+		<div class="container">
+			<div class="navbar-header page-scroll">
+				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+					<span class="sr-only">Toggle navigation</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="#">Bénévole</a>
+			</div>
+			<div id="navbar" class="navbar-collapse collapse">
+				<ul class="nav navbar-nav navbar-right">
+					<li><a class="page-scroll" href="#page-top">Início</a></li>
+					<li><a class="page-scroll" href="#services">Funcionalidades</a></li>
+					<li><a class="page-scroll" href="#team">Participantes</a></li>
+					<li><a class="page-scroll" href="#testimonials">Depoimentos</a></li>
+					<li><a class="page-scroll" href="#contact">Contato</a></li>
+				</ul>
+			</div>
+		</div>
+	</nav>
 </div>
-<div id="inSlider" class="carousel slide carousel-fade" data-ride="carousel">
-    <div class="carousel-inner" role="listbox">
-        <div class="item active">
-            <div class="container">
-                <div class="carousel-caption">
-                    <h1>Gestão<br/>
-                        Social, gratuita,<br/>
-                        para ONGs e<br/>
-                        instituições sem fins lucrativos</h1>
+<section id="page-top">
+	<div id="inSlider" class="carousel slide carousel-fade" data-ride="carousel">
+		<div class="carousel-inner" role="listbox">
+			<div class="item active">
+				<div class="container">
+					<div class="carousel-caption">
+						<h1>Gestão<br/>
+							Social, gratuita,<br/>
+							para ONGs e<br/>
+							instituições sem fins lucrativos
+						</h1>
                    
-                    <p>
-							  <%= link_to "Acesse", new_usuario_session_path, class: "btn btn-lg btn-primary"%>
-                    </p>
-                </div>
-                <div class="carousel-image wow zoomIn">
-                    <%= image_tag "benevole.png", alt: "Logo"%>
-                </div>
-            </div>
-            <!-- Set background for slide in css -->
-            <div class="header-back one"></div>
+						<p>
+							<%= link_to "Acesse", new_usuario_session_path, class: "btn btn-lg btn-primary"%>
+						</p>
+					</div>
+					<div class="carousel-image wow zoomIn">
+						<%= image_tag "benevole.png", alt: "Logo"%>
+					</div>
+				</div>
+				<!-- Set background for slide in css -->
+				<div class="header-back one"></div>
+			</div>
+		</div>
+	</div>
+</section>
 
-        </div>
-</div>
-
-
-<section id="features" class="container services">
-    <div class="row">
-        <div class="col-sm-3">
-            <h2>Gestão dos Voluntários</h2>
-            <p>Mantenha atualizada as informações dos voluntários.</p>
-        </div>
-        <div class="col-sm-3">
-            <h2>Gestão das Ações</h2>
-            <p>Tenho controle das atividades realizadas</p>
-        </div>
-        <div class="col-sm-3">
-            <h2>Colaboração</h2>
-            <p>Engaje os voluntários nas ações</p>
-        </div>
-        <div class="col-sm-3">
-            <h2>Controle</h2>
-            <p>Saiba que realmente faz a diferença</p>
-        </div>
-    </div>
+<section id="services" class="container services">
+	<div class="row">
+		<div class="col-sm-3">
+			<h2>Gestão dos Voluntários</h2>
+			<p>Mantenha atualizada as informações dos voluntários.</p>
+		</div>
+		<div class="col-sm-3">
+			<h2>Gestão das Ações</h2>
+			<p>Tenho controle das atividades realizadas</p>
+		</div>
+		<div class="col-sm-3">
+			<h2>Colaboração</h2>
+			<p>Engaje os voluntários nas ações</p>
+		</div>
+		<div class="col-sm-3">
+			<h2>Controle</h2>
+			<p>Saiba que realmente faz a diferença</p>
+		</div>
+	</div>
 </section>
 
 <section  class="container features">
-    <div class="row">
-        <div class="col-lg-12 text-center">
-            <div class="navy-line"></div>
-            <h1>Bénévole,<br/> da equipe da Raro Labs com carinho <span class="navy"></span> </h1>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-md-3 text-center wow fadeInLeft">
-            <div>
-                <i class="fa fa-dollar features-icon"></i>
-                <h2>Gratuito</h2>
-                <p>Para sempre. A Raro Labs mantém toda a infraestrutura de servidores e dados</p>
-            </div>
-            <div class="m-t-lg">
-                <i class="fa fa-spinner features-icon"></i>
-                <h2>Ilimitado</h2>
-                <p>Use a ferramenta sem limites de acessos e cadastros</p>
-            </div>
-        </div>
-        <div class="col-md-6 text-center  wow zoomIn">
-          <a href="http://www.rarolabs.com.br"><%= image_tag "landpage/img/logo_raro.png", alt: "dashboard", class: "img-responsive"%></a>
-        </div>
-        <div class="col-md-3 text-center wow fadeInRight">
-            <div>
-                <i class="fa fa-line-chart features-icon"></i>
-                <h2>Evolução</h2>
-                <p>Um dos principios da Raro Labs é sempre evoluir e com essa plataforma não será diferente, estaremos sempre preocupados em evoluir e trazer a melhor experiência de uso para todos.</p>
-            </div>
-            <div class="m-t-lg">
-                <i class="fa fa-lock features-icon"></i>
-                <h2>Confiabilidade</h2>
-                <p>Mesmo sendo uma plataforma gratuita, a equipe da Raro Labs se preocupa com a confiablidade e segurança do Benvole.</p>
-            </div>
-        </div>
-    </div>
+	<div class="row">
+		<div class="col-lg-12 text-center">
+			<div class="navy-line"></div>
+			<h1>Bénévole,<br/> da equipe da Raro Labs com carinho <span class="navy"></span> </h1>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-3 text-center wow fadeInLeft">
+			<div>
+				<i class="fa fa-dollar features-icon"></i>
+				<h2>Gratuito</h2>
+				<p>Para sempre. A Raro Labs mantém toda a infraestrutura de servidores e dados</p>
+			</div>
+			<div class="m-t-lg">
+				<i class="fa fa-spinner features-icon"></i>
+				<h2>Ilimitado</h2>
+				<p>Use a ferramenta sem limites de acessos e cadastros</p>
+			</div>
+		</div>
+		<div class="col-md-6 text-center  wow zoomIn">
+			<a href="http://www.rarolabs.com.br"><%= image_tag "landpage/img/logo_raro.png", alt: "dashboard", class: "img-responsive"%></a>
+		</div>
+		<div class="col-md-3 text-center wow fadeInRight">
+			<div>
+				<i class="fa fa-line-chart features-icon"></i>
+				<h2>Evolução</h2>
+				<p>Um dos principios da Raro Labs é sempre evoluir e com essa plataforma não será diferente, estaremos sempre preocupados em evoluir e trazer a melhor experiência de uso para todos.</p>
+			</div>
+			<div class="m-t-lg">
+				<i class="fa fa-lock features-icon"></i>
+				<h2>Confiabilidade</h2>
+				<p>Mesmo sendo uma plataforma gratuita, a equipe da Raro Labs se preocupa com a confiablidade e segurança do Benvole.</p>
+			</div>
+		</div>
+	</div>
 </section>
 
 <section id="team" class="gray-section team">
-    <div class="container">
-        <div class="row m-b-lg">
-            <div class="col-lg-12 text-center">
-                <div class="navy-line"></div>
-                <h1>Quem já aderiu</h1>
-                <p>Veja que já está utilizando nossa plataforma</p>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-sm-4 wow fadeInLeft">
-                <div class="team-member">
-                </div>
-            </div>
-            <div class="col-sm-4">
-                <div class="team-member wow zoomIn">
-                    <%= image_tag "landpage/img/logo-amar-e-simples.png", class: "img-responsive"%>
-                </div>
-            </div>
-            <div class="col-sm-4 wow fadeInRight">
-            </div>
-        </div>
-    </div>
+	<div class="container">
+		<div class="row m-b-lg">
+			<div class="col-lg-12 text-center">
+				<div class="navy-line"></div>
+				<h1>Quem já aderiu</h1>
+				<p>Veja que já está utilizando nossa plataforma</p>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-sm-4 wow fadeInLeft">
+				<div class="team-member">
+				</div>
+			</div>
+			<div class="col-sm-4">
+				<div class="team-member wow zoomIn">
+					<%= image_tag "landpage/img/logo-amar-e-simples.png", class: "img-responsive"%>
+				</div>
+			</div>
+			<div class="col-sm-4 wow fadeInRight">
+			</div>
+		</div>
+	</div>
 </section>
 
 
 
 <section id="testimonials" class="navy-section testimonials">
 
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-12 text-center wow zoomIn">
-                <i class="fa fa-comment big-icon"></i>
-                <h1>
-                    What our users say
-                </h1>
-                <div class="testimonials-text">
-                    <i>"Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like)."</i>
-                </div>
-                <small>
-                    <strong>12.02.2014 - Andy Smith</strong>
-                </small>
-            </div>
-        </div>
-    </div>
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-12 text-center wow zoomIn">
+				<i class="fa fa-comment big-icon"></i>
+				<h1>
+					What our users say
+				</h1>
+				<div class="testimonials-text">
+					<i>"Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like)."</i>
+				</div>
+				<small>
+					<strong>12.02.2014 - Andy Smith</strong>
+				</small>
+			</div>
+		</div>
+	</div>
 
 </section>
 
 <section id="contact" class="gray-section contact">
-    <div class="container">
-        <div class="row m-b-lg">
-            <div class="col-lg-12 text-center">
-                <div class="navy-line"></div>
-                <h1>Cadastre sua instituição</h1>
-            </div>
-        </div>
-        <div class="row m-b-lg">
-            <div class="col-lg-3 col-lg-offset-3">
-                <address>
-                    <strong><span class="navy">Raro Labs</span></strong><br/>
-                    Rua Paul Bouthiler, 341<br/>
-                    Mangabeiras, Belo Horizonte - MG<br/>
-                    <abbr title="Phone">P:</abbr> (31) 7171-8438
-                </address>
-            </div>
-            <div class="col-lg-4">
-                <p class="text-color">
-                    Entre em contato conosco e providenciaremos acesso para sua organização
-                </p>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-lg-12 text-center">
-                <a href="http://www.rarolabs.com.br/contato" class="btn btn-primary">Envie um e-mail</a>
-                <p class="m-t-sm">
-                    Ou siga-nos nas redes sociais
-                </p>
-                <ul class="list-inline social-icon">
-                    <li><a href="http://www.twitter.com.br/rarolabs"><i class="fa fa-twitter"></i></a>
-                    </li>
-                    <li><a href="http://www.facebook.com.br/rarolabs"><i class="fa fa-facebook"></i></a>
-                    </li>
-                    <li><a href="http://www.linkedin.com.br/rarolabs"><i class="fa fa-linkedin"></i></a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </div>
+	<div class="container">
+		<div class="row m-b-lg">
+			<div class="col-lg-12 text-center">
+				<div class="navy-line"></div>
+				<h1>Cadastre sua instituição</h1>
+			</div>
+		</div>
+		<div class="row m-b-lg">
+			<div class="col-lg-3 col-lg-offset-3">
+				<address>
+					<strong><span class="navy">Raro Labs</span></strong><br/>
+					Rua Paul Bouthiler, 341<br/>
+					Mangabeiras, Belo Horizonte - MG<br/>
+					<abbr title="Phone">P:</abbr> (31) 7171-8438
+				</address>
+			</div>
+			<div class="col-lg-4">
+				<p class="text-color">
+					Entre em contato conosco e providenciaremos acesso para sua organização
+				</p>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-lg-12 text-center">
+				<a href="http://www.rarolabs.com.br/contato" class="btn btn-primary">Envie um e-mail</a>
+				<p class="m-t-sm">
+					Ou siga-nos nas redes sociais
+				</p>
+				<ul class="list-inline social-icon">
+					<li><a href="http://www.twitter.com.br/rarolabs"><i class="fa fa-twitter"></i></a>
+					</li>
+					<li><a href="http://www.facebook.com.br/rarolabs"><i class="fa fa-facebook"></i></a>
+					</li>
+					<li><a href="http://www.linkedin.com.br/rarolabs"><i class="fa fa-linkedin"></i></a>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
 </section>
