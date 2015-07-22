@@ -1,6 +1,6 @@
 <%= render_crud do %>
 <%= simple_form_for @record, url: "/crud/usuario/#{@record.id}/create", html: {class: "form-horizontal"}  do |f| %>
-	<%= render_field({attribute: :qualificacao_list, sf: {label: "Qualificações", input_html: {data:{role:'tagsinput'}, placeholder: "digite a qualificação"}}, value: Proc.new{|f| f.object.try(:qualificacao_list).try(:present?) ? f.object.qualificacao_list.to_s : ""}}, f, Usuario, @record) %>
+	<%= render_field({attribute: :qualificacao_list, sf: {label: "Qualificações", input_html: {data:{role:'tagsinput'}, placeholder: "digite a qualificação"}, value: Proc.new{|f| f.object.try(:qualificacao_list).try(:present?) ? f.object.qualificacao_list.to_s : ""}}}, f, Usuario, @record) %>
 	<div class="form-group">
 		<div class="col-sm-4 col-sm-offset-2">
 			<%= f.submit "Salvar", class: 'btn btn-primary' %>

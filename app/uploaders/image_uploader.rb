@@ -9,7 +9,7 @@ class ImageUploader < CarrierWave::Uploader::Base
   end
 
   def extension_white_list
-    %w(jpg mpeg png)
+    %w(jpg jpeg mpeg png)
   end
 
   process :set_content_type

@@ -116,3 +116,5 @@
       already_confirmed: "já foi confirmado"
       not_found: "não encontrado"
       not_locked: "não foi bloqueado"
+      size_too_big: "é muito grande (deve ser, no máximo %{file_size})"
+      extension_white_list_error: "com extensão não permitida"

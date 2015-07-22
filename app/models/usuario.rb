@@ -10,13 +10,26 @@ class Usuario < ActiveRecord::Base
   belongs_to :veiculo
   has_many :participacoes
   
+  validates_presence_of :papel, unless: :root?
+  
   accepts_nested_attributes_for :endereco, :allow_destroy => true
   acts_as_taggable_on :qualificacao
   mount_uploader :foto, ImageUploader
   
-  scope :que_nao_receberam_convite, -> (acao_id) {where("usuarios.id not in (?)", Participacao.where(acao_id: acao_id).pluck(:usuario_id) || [])}
-  scope :aniversariantes_do_mes, -> {where("data_nascimento between CAST(? AS DATE) and CAST(? AS DATE)", DateTime.now.beginning_of_month, DateTime.now.end_of_month)}
-
+  scope :com_nome, -> {where("nome is not null")}
+  scope :aniversariantes_do_mes, -> {where(mes_aniversario: DateTime.now.month)}
+  
+  before_save :atualiza_mes_aniversario
+  
+  def self.que_nao_receberam_convite(acao_id)
+    usuarios = Participacao.where(acao_id: acao_id).pluck(:usuario_id)
+    if usuarios.present?
+      Usuario.com_nome.where("usuarios.id not in (?)", usuarios).order(:nome)
+    else
+      Usuario.com_nome.order(:nome)
+    end
+  end
+  
   def to_s
     nome
   end
@@ -47,5 +60,9 @@ class Usuario < ActiveRecord::Base
   
   def atualizado?
     nome.present? && foto.present? && data_nascimento.present? && celular.present? && veiculo.present? && endereco.try(:logradouro).try(:present?) && endereco.try(:numero).try(:present?)&& endereco.try(:bairro).try(:present?) && endereco.try(:cidade).try(:present?)
+  end
+  
+  def atualiza_mes_aniversario
+    self.mes_aniversario = self.data_nascimento.month if self.data_nascimento.present?
   end
 end

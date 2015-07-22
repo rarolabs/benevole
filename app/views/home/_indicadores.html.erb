@@ -18,7 +18,7 @@
 			</div>
 		</div>
 	<% end %>
-	<%= link_to "/crud/usuario?model=Usuario&partial=records&var=records&q[data_nascimento_gteq]=#{DateTime.now.beginning_of_month}&q[data_nascimento_lteq]=#{DateTime.now.end_of_month}" do %>
+	<%= link_to "/crud/usuario?model=Usuario&partial=records&var=records&q[mes_aniversario_eq]=#{DateTime.now.month}" do %>
 		<div class="col-lg-3">
 			<div class="widget style1 navy-bg">
 				<div class="row">

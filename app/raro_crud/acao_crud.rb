@@ -1,7 +1,7 @@
 class AcaoCrud < RaroCrud
   titulo "Ações"
 
-  link_superior "Nova Ação", id: "novo-button", icon: "plus", link: "new", can: Proc.new {|obj| Usuario.current.ability.can?(:create, obj)}
+  link_superior "Nova Ação", id: "novo-button", icon: "plus", link: "new", can: Proc.new {|obj| Usuario.current.ability.can?(:create, Acao)}
   
   ordenar_por :nome
   itens_por_pagina 20
@@ -44,5 +44,5 @@ class AcaoCrud < RaroCrud
   campo_busca :data_fim,  label: "Data fim"
   campo_busca :horario,  label: "Horário"
   
-  escopos [[:nova, "Novo"], [:em_andamento, "Em andamento"], [:concluida, "Concluído"], [:cancelada, "Cancelado"]]
+  escopos [[:nova, "Novas"], [:em_andamento, "Em andamento"], [:concluida, "Concluídas"], [:cancelada, "Canceladas"]]
 end

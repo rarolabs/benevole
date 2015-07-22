@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150713234204) do
+ActiveRecord::Schema.define(version: 20150722211722) do
 
   create_table "acoes", force: :cascade do |t|
     t.string   "nome",                  limit: 255
@@ -185,6 +185,7 @@ ActiveRecord::Schema.define(version: 20150713234204) do
     t.boolean  "doador_sangue",          limit: 1
     t.integer  "veiculo_id",             limit: 4
     t.string   "outros_veiculo",         limit: 255
+    t.integer  "mes_aniversario",        limit: 4
   end
 
   add_index "usuarios", ["email"], name: "index_usuarios_on_email", unique: true, using: :btree

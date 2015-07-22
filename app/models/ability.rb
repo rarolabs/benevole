@@ -11,6 +11,7 @@ class Ability
     # alias_action :destroy_selected, :to => :destroy
 
     can [:update,:create], Usuario, id: usuario.id
+    can :manage, Dashboard
     if usuario.root?
       can :manage, :all
     else
