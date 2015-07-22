@@ -6,6 +6,8 @@ class Acao < ActiveRecord::Base
   has_many :mensagens, dependent: :destroy
   has_and_belongs_to_many :usuarios
   
+  validates_presence_of :quantidade_voluntario
+  
   accepts_nested_attributes_for :endereco, :allow_destroy => true
   
   after_save  :conclui_acao
