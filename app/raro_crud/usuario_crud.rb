@@ -21,7 +21,7 @@ class UsuarioCrud < RaroCrud
   campo_formulario :celular, required: true, label: "Celular", input_html: {"data-mask" => "(99)9999-9999"}, if: Proc.new {|obj| Usuario.current.voluntario? || obj == Usuario.current }
   campo_formulario :facebook, label: "Facebook", if: Proc.new {|obj| Usuario.current.voluntario? || obj == Usuario.current }
   campo_formulario :doador_sangue, required: true, label: "Doador de sangue?", input_html: {class: "i-checks"}, if: Proc.new {|obj| Usuario.current.voluntario? || obj == Usuario.current }
-  campo_formulario :veiculo, required: true, label: "Como conheceu a ONG?", collection: Veiculo.accessible_by(Usuario.current.ability) + Veiculo.outros, add_registro: false, if: Proc.new {|obj| Usuario.current.voluntario? || obj == Usuario.current }
+  campo_formulario :veiculo, required: true, label: "Como conheceu a ONG?", collection: Veiculo.com_acesso + Veiculo.outros, add_registro: false, if: Proc.new {|obj| Usuario.current.voluntario? || obj == Usuario.current }
   campo_formulario :outros_veiculo, label: "Outros", if: Proc.new {|obj| Usuario.current.voluntario? || obj == Usuario.current }
   campo_formulario :qualificacao_list, label: "Qualificacao", if: Proc.new {|obj| false }
   adicionar_endereco
