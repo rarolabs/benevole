@@ -86,8 +86,8 @@
 									</tr>
 									<tr>
 										<td class="content-block aligncenter" width="600">
-											<%= link_to "Aceitar", aceitar_acao_path(id: @participacao.token), class: "btn-primary"%>
-											<%= link_to "Rejeitar", rejeitar_acao_path(id: @participacao.token), class: "btn-danger"%>
+											<%= link_to "Aceitar", aceitar_acao_url(id: @participacao.token), class: "btn-primary"%>
+											<%= link_to "Rejeitar", rejeitar_acao_url(id: @participacao.token), class: "btn-danger"%>
 											
 										</td>
 									</tr>
