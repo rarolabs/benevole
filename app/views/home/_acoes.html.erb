@@ -17,7 +17,7 @@
 						<div class="ibox-content">
 							<div class="team-members">
 								<% acao.participantes.each do |usuario| %>
-									<%= link_to "crud/usuario/#{usuario.id}" do %>
+									<%= link_to "/crud/usuario/#{usuario.id}" do %>
 										<%=image_tag(usuario.foto.url(:timeline), class: 'img-circle')%>
 									<% end %>
 								<% end %>
