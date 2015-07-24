@@ -8,8 +8,9 @@ class UsuarioCrud < RaroCrud
 
   acoes :qualificar, "Qualificar", Proc.new {|obj| Usuario.current.admin? && obj.atualizado?}
   
-  campo_tabela :foto,  label: "Nome"
+  campo_tabela :foto,  label: "Foto"
   campo_tabela :nome,  label: "Nome"
+  campo_tabela :email,  label: "Email", visible_if: Proc.new {Usuario.current.root?}
   campo_tabela :data_nascimento,  label: "Data Nascimento", date_format: "%d/%m/%Y"
 
   campo_formulario :instituicao, label: "Instituição", if: Proc.new {|obj| Usuario.current.root? }
