@@ -12,6 +12,7 @@ class Ability
 
     can [:update,:create], Usuario, id: usuario.id
     can :manage, Dashboard
+    can :read, Usuario
     if usuario.root?
       can :manage, :all
     else

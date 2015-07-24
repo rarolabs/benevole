@@ -1,8 +1,8 @@
 class Acao < ActiveRecord::Base
   belongs_to :instituicao
-  belongs_to :endereco
+  belongs_to :endereco, dependent: :destroy
   belongs_to :projeto
-  has_many :participacoes
+  has_many :participacoes, dependent: :destroy
   has_many :mensagens, dependent: :destroy
   has_and_belongs_to_many :usuarios
   
