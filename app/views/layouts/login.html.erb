@@ -45,6 +45,7 @@
 				</div>
 				<%= f.button :submit, "Login", class: 'btn btn-primary block full-width m-b' %>
 			<% end %>
+			<small><%=link_to "Esqueci minha senha", new_usuario_password_path%></small></a>
 			<p class="m-t"> <small>RaroLabs &copy; 2010-<%= DateTime.now.year %></small> </p>
 		</div>
 	</div>
@@ -52,4 +53,3 @@
 	<%= yield :javascript %>
 </body>
 </html>
-

@@ -2,6 +2,10 @@
 u = Usuario.find_by(email: "admin@rarolabs.com.br", root: true)
 u ||= Usuario.create(nome: "RaroLabs", email: "admin@rarolabs.com.br", root: true, password: "rarolabs", password_confirmation: "rarolabs")
 
+Instituicao.create(nome: "AMAR", descricao: "Teste")
+# Funcao.create(nome: "Chefe")
+Veiculo.create(nome:"Internet")
+
 #Cidade e Estados
 estado = Estado.find_or_create_by(nome: "Rondônia",sigla: "RO")
 Cidade.find_or_create_by(estado_id: estado.id, nome: "Alta Floresta d`Oeste")
