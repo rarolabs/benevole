@@ -7,7 +7,7 @@ class UsuarioCrud < RaroCrud
   exclusao Proc.new {|obj| obj != Usuario.current}
 
   acoes :qualificar, "Qualificar", Proc.new {|obj| Usuario.current.admin? && obj.atualizado?}
-  
+
   campo_tabela :foto,  label: "Foto"
   campo_tabela :nome,  label: "Nome"
   campo_tabela :email,  label: "Email", visible_if: Proc.new {Usuario.current.root?}
@@ -47,5 +47,6 @@ class UsuarioCrud < RaroCrud
   campo_busca :nome,  label: "Nome"
   campo_busca :data_nascimento,  label: "Data nascimento"
   campo_busca :descricao, label: "Função", model: "Papel", full_name: "papel_descricao", dont_assoc: true
-  campo_busca :nome, label: "nome", model: "Instituicao", full_name: "instituicao_nome", dont_assoc: true, visible_if: Proc.new {Usuario.current.admin?}
+  campo_busca :nome, label: "Instituição", model: "Instituicao", full_name: "instituicao_nome", dont_assoc: true, visible_if: Proc.new {Usuario.current.admin?}
+
 end

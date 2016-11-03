@@ -57,20 +57,22 @@
 		</div>
 	<% end %>
 	<div class="col-lg-3">
-		<div class="widget style1 yellow-bg">
-			<div class="row">
-				<div class="col-xs-12 text-right">
-					<span> Simplificado </span>
+		<%= link_to relatorio_path do %>
+			<div class="widget style1 yellow-bg">
+				<div class="row">
+					<div class="col-xs-12 text-right">
+						<span> Simplificado </span>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-xs-3">
+						<i class="fa fa-bar-chart-o fa-3x"></i>
+					</div>
+					<div class="col-xs-9 text-right">
+						<h2 class="font-bold">Relatório</h2>
+					</div>
 				</div>
 			</div>
-			<div class="row">
-				<div class="col-xs-3">
-					<i class="fa fa-bar-chart-o fa-3x"></i>
-				</div>
-				<div class="col-xs-9 text-right">
-					<h2 class="font-bold">Relatório</h2>
-				</div>
-			</div>
-		</div>
+		<% end %>
 	</div>
 </div>

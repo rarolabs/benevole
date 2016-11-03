@@ -4,7 +4,7 @@ source 'https://rubygems.org'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.1'
 # Use sqlite3 as the database for Active Record
-gem 'mysql2'
+gem 'mysql2', '~> 0.3.18'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
@@ -59,7 +59,7 @@ gem 'wiselinks'
 gem 'sidekiq'
 
 #rarocrud
-gem 'templus_models', "1.3.6"
+gem 'templus_models'
 gem 'carrierwave'
 gem 'rmagick'
 gem 'summernote-rails'
@@ -74,4 +74,3 @@ gem 'capistrano-unicorn'
 #Capistrano
 gem 'capistrano'
 gem 'rvm-capistrano',  require: false
-  
