@@ -1,6 +1,7 @@
 class Participacao < ActiveRecord::Base
   belongs_to :usuario
   belongs_to :acao
+  delegate :nome, :to => :acao, :allow_nil => false
   validates_uniqueness_of :usuario, scope: :acao
   scope :da_acao, -> (acao_id) {where(acao_id: acao_id)}
   scope :convite_aceito, -> {where(state: "ativa")}
@@ -41,7 +42,4 @@ class Participacao < ActiveRecord::Base
   def enviar_convite
     ConviteMailer.enviar(self.id).deliver_now
   end
-
-
-
 end
