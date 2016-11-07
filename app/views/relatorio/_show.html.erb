@@ -31,7 +31,7 @@
                     <td>
                       <% @model.all.each do |participacao| %>
                         <% if participacao.usuario === usuario%>
-                          <%= participacao.acao.nome %> - <%= participacao.acao.projeto.nome %>
+                          <%= participacao.acao_nome %> - <%= participacao.acao.projeto.nome %>
                            <br>
                         <% end %>
                       <% end %>
@@ -39,7 +39,7 @@
                   <td>
                     <% @model.all.each do |participacao| %>
                       <% if participacao.acao.state === "concluida" && participacao.state === "presente" && participacao.usuario === usuario%>
-                        <%= participacao.acao.nome %> - <%= participacao.acao.projeto.nome %>
+                        <%= participacao.acao_nome %> - <%= participacao.acao.projeto.nome %>
                         <br>
                       <% end%>
                     <% end %>
