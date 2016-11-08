@@ -10,6 +10,7 @@ class RelatorioController < ApplicationController
     @records = @q.result.accessible_by(current_ability).page(params[:page])
     @usuario = Usuario.where(id: @records.map(&:usuario_id).compact.uniq)
     @percentual = {}
+    @records = Participacao.joins(:acao).where(id: @records.map(&:id), acoes: {state: "concluida"})
 
     @usuario.each do |usuario|
       if usuario.participacoes.count.zero? || usuario.participacoes.joins(:acao).where(acoes: {state: "concluida"}).count.zero?

@@ -14,41 +14,35 @@
             <table class="table table-striped table-bordered table-hover dataTables-example dataTable">
               <thead>
                 <tr>
-                  <th><%="Foto".to_s.mb_chars.upcase.to_s%></th>
-                  <th><%="Nome".to_s.mb_chars.upcase.to_s%></th>
-                  <th><%="Ações Confirmadas".to_s.mb_chars.upcase.to_s%></th>
-                    <th><%="Ações Presentes".to_s.mb_chars.upcase.to_s%></th>
-                  <th><%="Percentual de Comparecimento".to_s.mb_chars.upcase.to_s%></th>
-                  <th><%="Opções".to_s%></th>
+                  <th>Foto</th>
+                  <th>Nome</th>
+                  <th>Ações confirmadas</th>
+                  <th>Ações Presentes</th>
+                  <th>Percentual de comparecimento</th>
+                  <th>Opções</th>
                 </tr>
               </thead>
               <tbody>
                 <% @usuario.each do |usuario| %>
-                  <% if usuario.participacoes.first != nil %>
                   <tr>
                     <td><%= image_tag((usuario.foto.thumb.url))%></td>
                     <td><%= usuario.nome%></td>
                     <td>
-                      <% @model.all.each do |participacao| %>
-                        <% if participacao.usuario === usuario%>
-                          <%= participacao.acao_nome %> - <%= participacao.acao.projeto.nome %>
-                           <br>
-                        <% end %>
+                      <% usuario.participacoes.each do |participacao| %>
+                        <%= participacao.acao_nome %> - <%= participacao.acao.projeto_nome %>
+                        <br>
                       <% end %>
                     </td>
-                  <td>
-                    <% @model.all.each do |participacao| %>
-                      <% if participacao.acao.state === "concluida" && participacao.state === "presente" && participacao.usuario === usuario%>
-                        <%= participacao.acao_nome %> - <%= participacao.acao.projeto.nome %>
+                    <td>
+                      <% usuario.participacoes.where(state: "presente").each do |participacao| %>
+                        <%= participacao.acao_nome %> - <%= participacao.acao.projeto_nome %>
                         <br>
-                      <% end%>
-                    <% end %>
-                  </td>
-                   <td><%= @percentual[usuario.id] %>%</td>
+                      <% end %>
+                    </td>
+                    <td><%= @percentual[usuario.id] %>%</td>
                     <td><%= link_to "Visualizar", "/crud/usuario/#{usuario.id}", :class => "btn btn-primary btn-xs"%></td>
-                </tr>
+                  </tr>
                 <% end%>
-                <% end %>
               </tbody>
             </table>
           </div>

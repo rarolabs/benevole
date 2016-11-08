@@ -264,7 +264,7 @@ DEPENDENCIES
   sdoc (~> 0.4.0)
   sidekiq
   summernote-rails
-  templus_models
+  templus_models (~> 1.6.4)
   therubyracer
   toastr-rails
   transitions
