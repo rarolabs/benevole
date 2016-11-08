@@ -6,8 +6,8 @@ class Acao < ActiveRecord::Base
   has_many :mensagens, dependent: :destroy
   has_and_belongs_to_many :usuarios
   validates_presence_of :nome, :quantidade_voluntario, :data_inicio, :data_fim, :descricao
-  scope :convite_aceito, -> { joins(:participacoes).where(participacoes: {state: "aceito"}).group(:id)}
-  scope :usuario_presente, -> { joins(:participacoes).where(participacoes: {state: "presente"}).group(:id)}
+  scope :convite_aceito, -> { joins(:participacoes).where(participacoes.aceito).group(:id)}
+  scope :usuario_presente, -> { joins(:participacoes).where(participacoes.presente).group(:id)}
 
   accepts_nested_attributes_for :endereco, :allow_destroy => true
 
