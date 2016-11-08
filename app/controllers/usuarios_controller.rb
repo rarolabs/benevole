@@ -38,8 +38,7 @@ class UsuariosController < ApplicationController
     params.require(:usuario).permit(:email, :instituicao_id, :papel_id)
   end
 
-  private
   def params_permitt
-    params.require(:usuario).permit(:email, :chave, :password, :password_confirmation)
+    params.require(:usuario).permit(:email, :password, :password_confirmation)
   end
 end
