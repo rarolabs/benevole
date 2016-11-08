@@ -29,13 +29,13 @@
                     <td><%= usuario.nome%></td>
                     <td>
                       <% usuario.participacoes.each do |participacao| %>
-                        <%= participacao.acao_nome %> - <%= participacao.acao.projeto_nome %>
+                        <%= participacao.acao_nome %> - <%= participacao.acao_projeto_nome %>
                         <br>
                       <% end %>
                     </td>
                     <td>
-                      <% usuario.participacoes.where(state: "presente").each do |participacao| %>
-                        <%= participacao.acao_nome %> - <%= participacao.acao.projeto_nome %>
+                      <% usuario.participacoes.presente.each do |participacao| %>
+                        <%= participacao.acao_nome %> - <%= participacao.acao_projeto_nome %>
                         <br>
                       <% end %>
                     </td>

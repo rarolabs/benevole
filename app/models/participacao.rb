@@ -2,8 +2,9 @@ class Participacao < ActiveRecord::Base
   belongs_to :usuario
   belongs_to :acao
   delegate :nome, :to => :acao, :prefix => true, :allow_nil => true
+  delegate :projeto_nome, :to => :acao, :prefix => true, :allow_nil => true
   validates_uniqueness_of :usuario, scope: :acao
-  scope :da_acao, -> (acao_id) {where(acao_id: acao_id)} 
+  scope :da_acao, -> (acao_id) {where(acao_id: acao_id)}
 
   include ActiveModel::Transitions
   state_machine auto_scopes: true, initial: :convidado do
