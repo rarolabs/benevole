@@ -2,9 +2,9 @@ Rails.application.routes.draw do
   devise_for :usuarios
 
   resources :usuarios, only: [:edit,:update]
-  
+
   post "/crud/usuario/create" => "usuarios#create"
-  
+
   # Routes for RaroCrud
   get '/crud/:model' => "crud#index"
   get '/crud/:model/:id/edit' => "crud#edit"
@@ -17,8 +17,10 @@ Rails.application.routes.draw do
   get '/crud/acao/:id' => "acoes#show"
   get '/crud/:model/:id' => "crud#show"
 
+  get '/relatorio' => 'relatorio#show'
+
   resources :permissoes, only: [:create]
-  
+
   namespace :api do
     resources :cidades, only: [] do
       collection do
@@ -31,7 +33,7 @@ Rails.application.routes.draw do
       end
     end
   end
-  
+
   resources :acoes, only: [] do
     member do
       post "enviar_convite"
@@ -40,7 +42,7 @@ Rails.application.routes.draw do
       get "concluir_feedback"
     end
   end
-  
+
   resources :mensagens, only: [:create]
   get "home/index"
   root to: "landpage#index"

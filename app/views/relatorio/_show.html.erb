@@ -1,0 +1,55 @@
+<div class="wrapper wrapper-content animated fadeInRight">
+  <div class="row">
+    <div class="col-lg-12">
+      <div class="ibox float-e-margins">
+        <div class="ibox-title">
+          <div class="pull-right actions">
+            <button id="button_search_participacao" class="btn btn-warning btn-rounded" data-toggle="modal" data-target="#modal_search">
+              <i class="fa fa-search"></i>
+            </button>
+          </div>
+        </div>
+        <div class="ibox-content">
+          <div class="dataTables_wrapper form-inline">
+            <table class="table table-striped table-bordered table-hover dataTables-example dataTable">
+              <thead>
+                <tr>
+                  <th>Foto</th>
+                  <th>Nome</th>
+                  <th>Ações confirmadas</th>
+                  <th>Ações Presentes</th>
+                  <th>Percentual de comparecimento</th>
+                  <th>Opções</th>
+                </tr>
+              </thead>
+              <tbody>
+                <% @usuario.each do |usuario| %>
+                  <tr>
+                    <td><%= image_tag((usuario.foto.thumb.url))%></td>
+                    <td><%= usuario.nome%></td>
+                    <td>
+                      <% usuario.participacoes.each do |participacao| %>
+                        <%= participacao.acao_nome %> - <%= participacao.acao_projeto_nome %>
+                        <br>
+                      <% end %>
+                    </td>
+                    <td>
+                      <% usuario.participacoes.presente.each do |participacao| %>
+                        <%= participacao.acao_nome %> - <%= participacao.acao_projeto_nome %>
+                        <br>
+                      <% end %>
+                    </td>
+                    <td><%= @percentual[usuario.id] %>%</td>
+                    <td><%= link_to "Visualizar", "/crud/usuario/#{usuario.id}", :class => "btn btn-primary btn-xs"%></td>
+                  </tr>
+                <% end%>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<hr>
