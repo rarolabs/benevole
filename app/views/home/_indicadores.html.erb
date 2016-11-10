@@ -1,78 +1,78 @@
 <div class="col-lg-12">
-	<%= link_to "/crud/usuario?model=Usuario&partial=records&var=records&q[papel_chave_eq]=voluntario" do %>
-		<div class="col-lg-3">
-			<div class="widget style1 navy-bg">
-				<div class="row">
-					<div class="col-xs-12 text-right">
-						<span> Voluntários </span>
-					</div>
-				</div>
-				<div class="row">
-					<div class="col-xs-3">
-						<i class="fa fa-users fa-3x"></i>
-					</div>
-					<div class="col-xs-9 text-right">
-						<h2 class="font-bold"><%= @quantidade_de_voluntarios %></h2>
-					</div>
-				</div>
-			</div>
-		</div>
-	<% end %>
-	<%= link_to "/crud/usuario?model=Usuario&partial=records&var=records&q[mes_aniversario_eq]=#{DateTime.now.month}" do %>
-		<div class="col-lg-3">
-			<div class="widget style1 navy-bg">
-				<div class="row">
-					<div class="col-xs-12 text-right">
-						<span> Aniversariantes do mês </span>
-					</div>
-				</div>
-				<div class="row">
-					<div class="col-xs-3">
-						<i class="fa fa-gift fa-3x"></i>
-					</div>
-					<div class="col-xs-9 text-right">
-						<h2 class="font-bold"><%= @quantidade_de_aniversariantes %></h2>
-					</div>
-				</div>
-			</div>
-		</div>
-	<% end %>
-	<%= link_to "/crud/projeto" do %>
-		<div class="col-lg-3">
-			<div class="widget style1 lazur-bg">
-				<div class="row">
-					<div class="col-xs-12 text-right">
-						<span> Projetos </span>
-					</div>
-				</div>
-				<div class="row">
-					<div class="col-xs-3">
-						<i class="fa fa-clipboard fa-3x"></i>
-					</div>
-					<div class="col-xs-9 text-right">
-						<h2 class="font-bold"><%= @quantidade_de_projetos %></h2>
-					</div>
-				</div>
-			</div>
-		</div>
-	<% end %>
-	<div class="col-lg-3">
-		<%= link_to relatorio_path do %>
-			<div class="widget style1 yellow-bg">
-				<div class="row">
-					<div class="col-xs-12 text-right">
-						<span> Simplificado </span>
-					</div>
-				</div>
-				<div class="row">
-					<div class="col-xs-3">
-						<i class="fa fa-bar-chart-o fa-3x"></i>
-					</div>
-					<div class="col-xs-9 text-right">
-						<h2 class="font-bold">Relatório</h2>
-					</div>
-				</div>
-			</div>
-		<% end %>
-	</div>
+  <%= link_to "/crud/usuario?model=Usuario&partial=records&var=records&q[papel_chave_eq]=voluntario" do %>
+    <div class="col-lg-3">
+      <div class="widget style1 navy-bg">
+        <div class="row">
+          <div class="col-xs-12 text-right">
+            <span> Voluntários </span>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-xs-3">
+            <i class="fa fa-users fa-3x"></i>
+          </div>
+          <div class="col-xs-9 text-right">
+            <h2 class="font-bold"><%= @quantidade_de_voluntarios %></h2>
+          </div>
+        </div>
+      </div>
+    </div>
+  <% end %>
+  <%= link_to "/crud/usuario?model=Usuario&partial=records&var=records&q[mes_aniversario_eq]=#{DateTime.now.month}" do %>
+    <div class="col-lg-3">
+      <div class="widget style1 navy-bg">
+        <div class="row">
+          <div class="col-xs-12 text-right">
+            <span> Aniversariantes do mês </span>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-xs-3">
+            <i class="fa fa-gift fa-3x"></i>
+          </div>
+          <div class="col-xs-9 text-right">
+            <h2 class="font-bold"><%= @quantidade_de_aniversariantes %></h2>
+          </div>
+        </div>
+      </div>
+    </div>
+  <% end %>
+  <%= link_to "/crud/projeto" do %>
+    <div class="col-lg-3">
+      <div class="widget style1 lazur-bg">
+        <div class="row">
+          <div class="col-xs-12 text-right">
+            <span> Projetos </span>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-xs-3">
+            <i class="fa fa-clipboard fa-3x"></i>
+          </div>
+          <div class="col-xs-9 text-right">
+            <h2 class="font-bold"><%= @quantidade_de_projetos %></h2>
+          </div>
+        </div>
+      </div>
+    </div>
+  <% end %>
+  <div class="col-lg-3">
+    <%= link_to relatorio_path do %>
+      <div class="widget style1 yellow-bg">
+        <div class="row">
+          <div class="col-xs-12 text-right">
+            <span> Simplificado </span>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-xs-3">
+            <i class="fa fa-bar-chart-o fa-3x"></i>
+          </div>
+          <div class="col-xs-9 text-right">
+            <h2 class="font-bold">Relatório</h2>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
 </div>
