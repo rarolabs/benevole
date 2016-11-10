@@ -65,6 +65,8 @@ pt-BR:
         rg: "RG"
         numero_carteira_motorista: Nº da Carteira de Motorista
         veiculos: "Veículos"
+    button:
+      search: "Buscar"
     #   password: 'Password'
     #   user:
     #     new:
@@ -74,4 +76,3 @@ pt-BR:
     # hints:
     #   username: 'User name to sign in.'
     #   password: 'No special characters, please.'
-    

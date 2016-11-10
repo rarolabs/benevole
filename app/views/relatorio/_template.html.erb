@@ -1,0 +1,14 @@
+<% content_for :breadcumb do %>
+	<li class=""><%= link_to "Relatório", @url %></li>
+<% end %>
+
+	<% content_for :header do %>
+		<%= "Relatório Simplificado"%>
+	<% end %>
+
+	<% content_for :modal do %>
+			<%= render "search" %>
+	<% end %>
+
+
+<%= render "layouts/template_raro_crud" %>
