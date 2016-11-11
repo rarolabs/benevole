@@ -1,14 +1,14 @@
 catcher = {
   :address => "localhost",
-  :port => 1025 
+  :port => 1025
 }
 
-prod =  {
-  :address => 'localhost',
-  :domain => 'entreagente.com.br',
-  :port => 25,
-  :openssl_verify_mode => 'none'
-}
+# prod =  {
+#   :address => 'localhost',
+#   :domain => 'entreagente.com.br',
+#   :port => 25,
+#   :openssl_verify_mode => 'none'
+# }
 
 stage =  {
   :address              => "smtp.gmail.com",

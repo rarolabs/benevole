@@ -46,6 +46,10 @@ class Usuario < ActiveRecord::Base
     [:password, :password_confirmation, :qualificacao_list]
   end
 
+  def self.allowed
+    [:email, :password, :password_confirmation]
+  end
+
   def ability
     @ability ||= Ability.new(self)
   end
