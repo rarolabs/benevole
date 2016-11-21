@@ -1,1 +1,0 @@
-$(document).ready(function(){$("select[id$='_estado']").on("change",function(){$.getJSON("/api/cidades/busca?estado="+$(this).val(),{format:"json"},function(t){var e,i;for(i="",e=0;e<t.length;)i+="<option value='"+t[e].id+"'>"+t[e].nome+"</option>",e++;$("select[id$='cidade_id']").html(i).show(),$("select[id$='cidade_id']").trigger("select")})})});
